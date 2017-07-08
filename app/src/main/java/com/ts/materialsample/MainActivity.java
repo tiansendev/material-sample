@@ -1,5 +1,7 @@
 package com.ts.materialsample;
 
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -16,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Toolbar mToolBar;
     private DrawerLayout mDrawerLayout;
+    private NavigationView mNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,18 @@ public class MainActivity extends AppCompatActivity {
         }
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+
+        mNav = (NavigationView) findViewById(R.id.nav);
+        mNav.setCheckedItem(R.id.call);
+        mNav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Toast.makeText(MainActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
+                mDrawerLayout.closeDrawers();
+                return true;
+            }
+        });
     }
 
     @Override
