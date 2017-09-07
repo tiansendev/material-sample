@@ -15,7 +15,8 @@ import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+   
+    // Just for test.
     private Toolbar mToolBar;
     private DrawerLayout mDrawerLayout;
     private NavigationView mNav;
